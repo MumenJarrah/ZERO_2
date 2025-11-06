@@ -1,4 +1,4 @@
-# Information
+# Overview
 This artificat is based on DedupBench (Liu et al., CCECE 2023) a benchmarking tool for data chunking techniques used in data deduplication. DedupBench is designed for extensibility, allowing new chunking techniques to be implemented with minimal additional code. DedupBench is also designed to be used with generic datasets, allowing for the comparison of a large number of data chunking techniques. The artifact provides a reproducible environment for benchmarking and comparing chunking efficiency, throughput, and space savings across the following techniques:
 | Chunking Technique | chunking_algo |
 |--------------------|---------------|
