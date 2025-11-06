@@ -23,25 +23,12 @@ All experiments were conducted on a [CloudLab](https://www.cloudlab.us/) node (c
    ```
 2. Clone and build the repository.
    ```
-     git clone https://github.com/UWASL/dedup-bench.git
-     cd dedup-bench/build/
+     git clone https://github.com/MumenJarrah/ZERO_2.git
+     cd ZERO/build/
      make clean
      make
    ```
-3. If AVX-512 support is required, these are the alternative build commands. **_Note that building with this option on a machine without AVX-512 support will result in runtime errors._**
-   ```
-     make clean
-     make EXTRA_COMPILER_FLAGS='-mavx512f -mavx512vl -mavx512bw'
-   ```
-4. Generate a dataset consisting of random data for testing. This generates three 1GB files with random ASCII characters on Ubuntu 22.04.
-   ```
-     mkdir random_dataset
-     cd random_dataset/
-     base64 /dev/urandom | head -c 1000000000 > random_1.txt
-     base64 /dev/urandom | head -c 1000000000 > random_2.txt
-     base64 /dev/urandom | head -c 1000000000 > random_3.txt
-   ```
-  Alternatively, download and use the _DEB_ dataset used in our Middleware 2024 / FAST 2025 papers from [Kaggle](https://www.kaggle.com/datasets/sreeharshau/vm-deb-fast25).
+4. For the datasets, download and use the following datasets: [Kaggle](https://www.kaggle.com/datasets/sreeharshau/vm-deb-fast25).
 
 # Running dedup-bench
 This section describes how to run dedup-bench. You can run dedup-bench using our preconfigured scripts for 8KB chunks or manually if you want custom techniques/chunk sizes.
@@ -102,32 +89,3 @@ The following hashing techniques are currently supported by DedupBench. Note tha
 | SHA1              | sha1         |
 | SHA256            | sha256       |
 | SHA512            | sha512       |
-  
-
-# VM Dataset from DedupBench 2023:
-
-The following images from Bitnami were used in the original DedupBench paper at CCECE 2023:
-
-### Image URLs
-```
-  https://marketplace.cloud.vmware.com/services/details/tomcatstack?slug=true
-  https://marketplace.cloud.vmware.com/services/details/mysql?slug=true
-  https://marketplace.cloud.vmware.com/services/details/rubystack?slug=true
-  https://marketplace.cloud.vmware.com/services/details/jenkins?slug=true
-  https://marketplace.cloud.vmware.com/services/details/ejbca-singlevm?slug=true
-  https://marketplace.cloud.vmware.com/services/details/kafka?slug=true
-  https://marketplace.cloud.vmware.com/services/details/elasticsearch?slug=true
-  https://marketplace.cloud.vmware.com/services/details/airflow-singlevm?slug=true
-  https://marketplace.cloud.vmware.com/services/details/opencart?slug=true
-  https://marketplace.cloud.vmware.com/services/details/grafana?slug=true
-  https://marketplace.cloud.vmware.com/services/details/redis?slug=true
-```
-
-Note that the following images were also used in the paper but are unavailable as of Sept 2024.
-```
-  https://marketplace.cloud.vmware.com/services/details/phplist?slug=true
-  https://marketplace.cloud.vmware.com/services/details/seopanel?slug=true
-  https://marketplace.cloud.vmware.com/services/details/publify?slug=true
-  https://marketplace.cloud.vmware.com/services/details/canvaslms?slug=true
-```
-
