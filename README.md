@@ -8,13 +8,8 @@ cation systems by up to 29% in the presence of zero-entropy regions, while impos
 
 This artifact is based on **DedupBench** [Liu et al., CCECE 2023](https://doi.org/10.1109/CCECE58730.2023.10288834), a benchmarking framework for evaluating data chunking techniques used in data deduplication systems. We extend DedupBench to incorporate ZERO’s preprocessing workflow and to evaluate the interaction between ZERO and state-of-the-art CDC algorithms. Specifically, this artifact focuses on the following four CDC techniques: AE, FastCDC, Rabin, and RAM.
 
-| Chunking Technique | chunking_algo |
-|--------------------|---------------|
-| AE                 | ae            |
-| FastCDC            | fastcdc       |
-| Rabin's Chunking   | rabins        |
-| RAM                | ram           |
-
+# Environment
+All experiments were conducted on a [CloudLab](https://www.cloudlab.us/) node (c6525-25g) provisioned with an AMD EPYC 7302P processor (16 cores) running at 3.0 GHz, and 128 GB of RAM. The node used a UBUNTU22-64-X86 (Ubuntu 22.04 LTS) boot image in normal operation mode. No acceleration features were enabled during experiments to ensure consistent and reproducible benchmarking across all CDC algorithms.
 
 # Installation 
 1. Install prerequisites. Note that these commands are for Ubuntu 22.04.
