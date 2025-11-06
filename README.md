@@ -2,11 +2,15 @@
 
 This is the implementation repository of our FAST'25 paper: **ZERO: Zero Entropy Region Optimization for Data Deduplication**.
 
-# Overview
-This artifact is based on DedupBench [Liu et al., CCECE 2023](https://doi.org/10.1109/CCECE58730.2023.10288834), a benchmarking framework for evaluating data chunking techniques used in data deduplication systems. DedupBench was designed for extensibility, allowing researchers to easily integrate and compare different chunking algorithms using generic datasets. 
+## Description
+As the volume of digital data continues to grow rapidly, efficient data reduction techniques have become essential for managing storage and bandwidth. While data deduplication remains one of the most effective reduction methods, recent research has shown that it performs poorly when handling low-entropy or zero-entropy data regions—segments of data filled with identical byte values (e.g., long runs of zeros). Such regions are common in virtual machine images, log files, and scientific datasets, yet are inefficiently processed by traditional content-defined chunking (CDC) techniques.
 
 
-a benchmarking tool for data chunking techniques used in data deduplication. DedupBench is designed for extensibility, allowing new chunking techniques to be implemented with minimal additional code. DedupBench is also designed to be used with generic datasets, allowing for the comparison of a large number of data chunking techniques. The artifact provides a reproducible environment for benchmarking and comparing chunking efficiency, throughput, and space savings for various chunkgin algoreitrhmns, In this work, we will focus on the the folloiwng chunking techniques:
+As the volume of digital data continues to grow rapidly, efficient data reduction techniques have become essential for managing storage and bandwidth. Recent research has shown that low-entropy and zero-entropy data regions are not handled efficiently by data deduplication, a widely used data reduction technique. We characterize the zero-entropy data regions present in real-world datasets. Using these insights, we design **ZERO** to complement traditional deduplication, effectively handling zero-entropy regions. Our evaluation shows that ZERO can improve the space savings achieved by dedupli-
+cation systems by up to 29% in the presence of zero-entropy regions, while imposing minimal processing time overhead.
+
+This artifact is based on **DedupBench** [Liu et al., CCECE 2023](https://doi.org/10.1109/CCECE58730.2023.10288834), a benchmarking framework for evaluating data chunking techniques used in data deduplication systems. We extend DedupBench to incorporate ZERO’s preprocessing workflow and to evaluate the interaction between ZERO and state-of-the-art CDC algorithms. Specifically, this artifact focuses on the following four CDC techniques: AE, FastCDC, Rabin, and RAM.
+
 | Chunking Technique | chunking_algo |
 |--------------------|---------------|
 | AE                 | ae            |
@@ -86,29 +90,16 @@ We have created scripts to run dedup-bench with an 8KB average chunk size on any
 Here are some hints using which `config.txt` can be modified.
 
 ### Chunking Techniques
-The following chunking techniques are currently supported by DedupBench. Note that the `chunking_algo` parameter in the configuration file needs to be edited to switch techniques.
+WE use the following chunking techniques supported by DedupBench. Note that the `chunking_algo` parameter in the configuration file needs to be edited to switch techniques.
 
 | Chunking Technique | chunking_algo |
 |--------------------|---------------|
 | AE                 | ae            |
 | FastCDC            | fastcdc       |
-| Gear Chunking      | gear          |
 | Rabin's Chunking   | rabins        |
 | RAM                | ram           |
-| SeqCDC             | seq           |
-| TTTD               | tttd          |
 
 After choosing a `chunking_algo`, make sure to check and adjust its parameters (e.g. chunk sizes). _Note that each `chunking_algo` has a separate parameter section in the config file_. For example, SeqCDC's minimum and maximum chunk sizes are called `seq_min_block_size` and `seq_max_block_size` respectively.
-
-### SSE / AVX Acceleration
-To use VectorCDC's RAM (VRAM), set `chunking_algo` to point to RAM and change `simd_mode` to one of the following values:
-| SIMD Mode | simd_mode |
-|-----------|-----------|
-| SSE128    | sse128    |
-| AVX256    | avx256    |
-| AVX512    | avx512    |
-
-Note that only RAM currently supports SSE/AVX acceleration. dedup-bench must be compiled with AVX-512 support to use the `avx512` mode.
 
 ### Hashing Techniques
 The following hashing techniques are currently supported by DedupBench. Note that the `hashing_algo` parameter in the configuration file needs to be edited to switch techniques.
