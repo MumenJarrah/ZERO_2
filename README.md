@@ -89,3 +89,8 @@ The following hashing techniques are currently supported by DedupBench. Note tha
 | SHA1              | sha1         |
 | SHA256            | sha256       |
 | SHA512            | sha512       |
+
+### Datasets
+1. CORD-19: https://www.kaggle.com/datasets/allen-institute-for-ai/CORD-19-research-challenge
+2. VDI:
+3. LNX: 
