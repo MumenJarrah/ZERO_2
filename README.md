@@ -1,5 +1,12 @@
+# ZERO: Zero Entropy Region Optimization for Data Deduplication
+
+This is the implementation repository of our FAST'25 paper: **ZERO: Zero Entropy Region Optimization for Data Deduplication**.
+
 # Overview
-This artificat was built based on DedupBench [Liu et al., CCECE 2023](https://doi.org/10.1109/CCECE58730.2023.10288834), a benchmarking tool for data chunking techniques used in data deduplication. DedupBench is designed for extensibility, allowing new chunking techniques to be implemented with minimal additional code. DedupBench is also designed to be used with generic datasets, allowing for the comparison of a large number of data chunking techniques. The artifact provides a reproducible environment for benchmarking and comparing chunking efficiency, throughput, and space savings across the following techniques:
+This artifact is based on DedupBench [Liu et al., CCECE 2023](https://doi.org/10.1109/CCECE58730.2023.10288834), a benchmarking framework for evaluating data chunking techniques used in data deduplication systems. DedupBench was designed for extensibility, allowing researchers to easily integrate and compare different chunking algorithms using generic datasets. 
+
+
+a benchmarking tool for data chunking techniques used in data deduplication. DedupBench is designed for extensibility, allowing new chunking techniques to be implemented with minimal additional code. DedupBench is also designed to be used with generic datasets, allowing for the comparison of a large number of data chunking techniques. The artifact provides a reproducible environment for benchmarking and comparing chunking efficiency, throughput, and space savings for various chunkgin algoreitrhmns, In this work, we will focus on the the folloiwng chunking techniques:
 | Chunking Technique | chunking_algo |
 |--------------------|---------------|
 | AE                 | ae            |
