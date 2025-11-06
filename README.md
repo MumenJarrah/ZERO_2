@@ -1,14 +1,12 @@
 # Information
-DedupBench is a benchmarking tool for data chunking techniques used in data deduplication. DedupBench is designed for extensibility, allowing new chunking techniques to be implemented with minimal additional code. DedupBench is also designed to be used with generic datasets, allowing for the comparison of a large number of data chunking techniques. 
+This artificat is based on DedupBench (Liu et al., CCECE 2023) a benchmarking tool for data chunking techniques used in data deduplication. DedupBench is designed for extensibility, allowing new chunking techniques to be implemented with minimal additional code. DedupBench is also designed to be used with generic datasets, allowing for the comparison of a large number of data chunking techniques. The artifact provides a reproducible environment for benchmarking and comparing chunking efficiency, throughput, and space savings across the following techniques:
+| Chunking Technique | chunking_algo |
+|--------------------|---------------|
+| AE                 | ae            |
+| FastCDC            | fastcdc       |
+| Rabin's Chunking   | rabins        |
+| RAM                | ram           |
 
-DedupBench currently supports many state-of-the-art data chunking and hashing algorithms. Please cite the relevant publications from this list if you use the code from this repository:
-
-```
-  [1] Udayashankar, S., Baba, A. and Al-Kiswany, S., 2025, February. VectorCDC: Accelerating Data Deduplication with SSE/AVX Instructions. In 2025 USENIX 23rd Conference on File and Storage Technologies (FAST). USENIX
-  [2] Udayashankar, S., Baba, A. and Al-Kiswany, S., 2024, December. SeqCDC: Hashless Content-Defined Chunking for Data Deduplication. In 2024 ACM/IFIP 25th International Middleware Conference (MIDDLEWARE). ACM
-  [3] Jarah, MA., Udayashankar, S., Baba, A. and Al-Kiswany, S., 2024, July. The Impact of Low-Entropy on Chunking Techniques for Data Deduplication. In 2024 IEEE 17th International Conference on Cloud Computing (CLOUD) (pp. 134-140). IEEE.
-  [4] Liu, A., Baba, A., Udayashankar, S. and Al-Kiswany, S., 2023, September. DedupBench: A Benchmarking Tool for Data Chunking Techniques. In 2023 IEEE Canadian Conference on Electrical and Computer Engineering (CCECE) (pp. 469-474). IEEE.
-```
 
 # Installation 
 1. Install prerequisites. Note that these commands are for Ubuntu 22.04.
