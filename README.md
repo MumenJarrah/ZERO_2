@@ -3,9 +3,6 @@
 This is the implementation repository of our FAST'25 paper: **ZERO: Zero Entropy Region Optimization for Data Deduplication**.
 
 ## Description
-As the volume of digital data continues to grow rapidly, efficient data reduction techniques have become essential for managing storage and bandwidth. While data deduplication remains one of the most effective reduction methods, recent research has shown that it performs poorly when handling low-entropy or zero-entropy data regions—segments of data filled with identical byte values (e.g., long runs of zeros). Such regions are common in virtual machine images, log files, and scientific datasets, yet are inefficiently processed by traditional content-defined chunking (CDC) techniques.
-
-
 As the volume of digital data continues to grow rapidly, efficient data reduction techniques have become essential for managing storage and bandwidth. Recent research has shown that low-entropy and zero-entropy data regions are not handled efficiently by data deduplication, a widely used data reduction technique. We characterize the zero-entropy data regions present in real-world datasets. Using these insights, we design **ZERO** to complement traditional deduplication, effectively handling zero-entropy regions. Our evaluation shows that ZERO can improve the space savings achieved by dedupli-
 cation systems by up to 29% in the presence of zero-entropy regions, while imposing minimal processing time overhead.
 
